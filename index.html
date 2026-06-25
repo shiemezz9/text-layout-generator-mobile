@@ -3898,8 +3898,195 @@
       box-sizing: border-box;
     }
 
+    body.mobile-build header {
+      grid-template-columns: minmax(64px, auto) minmax(150px, 1fr);
+      align-items: center;
+      gap: 4px;
+      margin: 3px 3px 0;
+      padding: 5px 5px;
+      border-radius: 8px;
+      min-height: 0;
+    }
+
+    body.mobile-build .app-title {
+      gap: 4px;
+      min-width: 0;
+    }
+
+    body.mobile-build .app-logo {
+      width: 18px;
+      height: 18px;
+      border-radius: 5px;
+      font-size: 11px;
+    }
+
+    body.mobile-build .app-title h1 {
+      max-width: 72px;
+      font-size: 7px;
+      line-height: 1.1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    body.mobile-build .save-state {
+      display: none;
+    }
+
+    body.mobile-build .header-canvas-size {
+      grid-column: auto;
+      grid-row: auto;
+      grid-template-columns: auto minmax(48px, 1fr) auto minmax(48px, 1fr);
+      gap: 3px;
+      margin: 0;
+      padding: 3px;
+      border-radius: 7px;
+      min-width: 0;
+    }
+
+    body.mobile-build .header-canvas-size > span {
+      height: 22px;
+      font-size: 7px;
+    }
+
+    body.mobile-build .header-canvas-size label {
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 2px;
+      font-size: 7px;
+    }
+
+    body.mobile-build .header-canvas-size input[type="text"] {
+      height: 22px;
+      min-height: 22px;
+      border-radius: 6px;
+      padding: 0 3px;
+      font-size: 8px;
+    }
+
+    body.mobile-build .header-actions {
+      grid-column: 1 / -1;
+      grid-row: auto;
+      justify-content: flex-start;
+      gap: 2px;
+      margin: 2px 0 0;
+      padding: 0;
+      min-width: 0;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    body.mobile-build .header-actions::-webkit-scrollbar {
+      display: none;
+    }
+
+    body.mobile-build #savePreset,
+    body.mobile-build #deletePreset,
+    body.mobile-build #checkUpdates,
+    body.mobile-build #openOnboarding,
+    body.mobile-build #randomize {
+      display: none !important;
+    }
+
+    body.mobile-build #presetSelect {
+      display: inline-block !important;
+      flex: 0 0 100px;
+      height: 28px;
+      min-height: 28px;
+      border-radius: 9px;
+      padding: 0 18px 0 8px;
+      font-size: 9px;
+      font-weight: 950;
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.13);
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    body.mobile-build #loadPreset,
+    body.mobile-build #importPresetFile,
+    body.mobile-build #previewMotion,
+    body.mobile-build #download,
+    body.mobile-build #exportWebm {
+      display: inline-grid !important;
+      place-items: center;
+      flex: 0 0 auto;
+      height: 28px;
+      min-height: 28px;
+      padding: 0 8px;
+      border-radius: 9px;
+      font-size: 9px;
+      line-height: 1;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    body.mobile-build #loadPreset,
+    body.mobile-build #importPresetFile {
+      min-width: 42px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.13);
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    body.mobile-build #importPresetFile {
+      min-width: 54px;
+    }
+
+    body.mobile-build #previewMotion,
+    body.mobile-build #download {
+      min-width: 50px;
+      color: #fff;
+      background: linear-gradient(135deg, #725cff, #563dff);
+      border-color: transparent;
+    }
+
+    body.mobile-build #download {
+      min-width: 58px;
+    }
+
+    body.mobile-build #exportWebm {
+      min-width: 62px;
+      background: var(--phone-ink);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    body.mobile-build .transport-controls {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    body.mobile-build #startManualRecord,
+    body.mobile-build #stopManualRecord,
+    body.mobile-build #startFullscreenRecord,
+    body.mobile-build #stopFullscreenRecord,
+    body.mobile-build #timecodeInputWrap {
+      display: none !important;
+    }
+
+    body.mobile-build .timeline-strip {
+      min-height: 64px;
+      padding: 7px 8px 14px;
+      overflow: visible;
+    }
+
+    body.mobile-build .timeline-head {
+      height: 12px;
+      margin-bottom: 4px;
+    }
+
+    body.mobile-build .phase-track {
+      height: 12px;
+      margin-bottom: 10px;
+    }
+
+    body.mobile-build #motionScrub {
+      height: 24px;
+      min-height: 24px;
+    }
+
     body.mobile-build .motion-global-controls {
-      grid-template-columns: repeat(4, minmax(82px, 1fr));
+      grid-template-columns: repeat(4, minmax(76px, 1fr));
       overflow-x: auto;
       padding-bottom: 4px;
       scrollbar-width: none;
@@ -3910,8 +4097,8 @@
     }
 
     body.mobile-build .motion-global-controls label {
-      min-width: 92px;
-      padding: 8px;
+      min-width: 76px;
+      padding: 7px;
       border-radius: 16px;
       background: #f6f7fc;
     }
@@ -4527,6 +4714,7 @@
           <button id="previewMotion" type="button">预览</button>
           <button id="randomize">随机</button>
           <button id="download">下载 PNG</button>
+          <button id="exportWebm" type="button">导出 WebM</button>
         </div>
       </header>
       <div class="canvas-shell">
@@ -4537,7 +4725,6 @@
           <button id="playMotion" type="button">播放</button>
           <button id="pauseMotion" type="button">暂停</button>
           <button id="resetMotion" type="button">重置</button>
-          <button id="exportWebm" type="button">自动导出</button>
           <button id="startManualRecord" type="button">开始录制</button>
           <button id="stopManualRecord" type="button" disabled>结束录制</button>
           <button id="startFullscreenRecord" type="button">画布全屏</button>
