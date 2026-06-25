@@ -3430,6 +3430,54 @@
       display: none;
     }
 
+    body.mobile-build .header-canvas-size {
+      display: grid;
+      grid-template-columns: auto minmax(72px, 1fr) minmax(72px, 1fr);
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      padding: 8px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+    }
+
+    body.mobile-build .header-canvas-size > span {
+      display: inline-flex;
+      align-items: center;
+      height: 34px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 12px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    body.mobile-build .header-canvas-size label {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: center;
+      gap: 5px;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 11px;
+      font-weight: 900;
+      min-width: 0;
+    }
+
+    body.mobile-build .header-canvas-size input[type="text"] {
+      width: 100%;
+      min-width: 0;
+      height: 34px;
+      min-height: 34px;
+      border: 0;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.13);
+      color: #fff;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 950;
+      font-variant-numeric: tabular-nums;
+    }
+
     body.mobile-build .canvas-shell {
       min-height: 0;
       padding: 10px;
@@ -3723,6 +3771,11 @@
       color: #fff;
     }
 
+    body.mobile-build #startFullscreenRecord,
+    body.mobile-build #stopFullscreenRecord {
+      display: none !important;
+    }
+
     body.mobile-build #savePreset,
     body.mobile-build #loadPreset,
     body.mobile-build #importPresetFile {
@@ -3816,9 +3869,33 @@
     }
 
     body.mobile-build .timeline-strip {
-      padding: 8px;
+      min-height: 58px;
+      height: auto;
+      padding: 8px 10px 10px;
       border-radius: 16px;
       background: #f5f6fb;
+      overflow: visible;
+      box-sizing: border-box;
+    }
+
+    body.mobile-build .timeline-head {
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+
+    body.mobile-build .phase-track {
+      height: 12px;
+      margin-bottom: 7px;
+      overflow: hidden;
+    }
+
+    body.mobile-build #motionScrub {
+      display: block;
+      width: 100%;
+      min-height: 22px;
+      height: 22px;
+      margin: 0;
+      box-sizing: border-box;
     }
 
     body.mobile-build .motion-global-controls {
@@ -8702,7 +8779,9 @@
     setMobileTab("canvas");
     draw();
     pushHistorySnapshot();
-    window.setTimeout(() => startOnboarding(false), 700);
+    if (!document.body.classList.contains("mobile-build")) {
+      window.setTimeout(() => startOnboarding(false), 700);
+    }
   </script>
 </body>
 </html>
